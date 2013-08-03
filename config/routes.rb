@@ -4,10 +4,18 @@ GalCivBoardGame::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
+  root 'pages#news'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
-
+  get 'description' => 'pages#description' 
+  get 'races'       => 'pages#races' 
+  get 'map'         => 'pages#map' 
+  get 'planets'     => 'pages#planets' 
+  get 'ships'       => 'pages#ships' 
+  get 'equipment'   => 'pages#equipment' 
+  get 'files'       => 'pages#files' 
+  get 'feedback'    => 'pages#feedback' 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
