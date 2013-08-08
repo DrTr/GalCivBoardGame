@@ -1,0 +1,57 @@
+$ligthblue: #636EE8
+
+.messages
+  margin-left: 0
+  padding-left: 0
+  margin-top: 50px
+  padding-right: 10px
+  li
+    list-style-type: none
+    margin-bottom: 50px
+    
+img
+  vertical-align: middle
+
+.message_title
+  text-shadow: 2px 2px 4px $ligthblue
+  text-align: center
+  margin-bottom: -33px
+  margin-right: 200px
+  a
+    font-size: 30px
+    color: white  
+    text-decoration: none
+    width: 300px
+      
+.message_created
+  text-align: right
+
+.message_footer
+  margin-bottom: 5px
+  
+.more
+  float: left
+
+.comments_count
+  text-align: right   
+ 
+@mixin border_side
+  width: 228px
+  height: 16px
+    
+.left_border
+  @include border_side
+  float: left
+  margin-left: -20px
+  background: url('/assets/message/border_left.png')
+ 
+.right_border
+  @include border_side
+  float: right
+  margin-right: -10px
+  background: url('/assets/message/border_right.png')
+  
+.center_border
+  height: 16px
+  margin: 0 200px
+  background: url('/assets/message/border_element.png')

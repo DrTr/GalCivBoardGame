@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'haml'
 gem 'will_paginate'
 gem 'bcrypt-ruby', '3.0.1'
+gem 'faker'
  
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'

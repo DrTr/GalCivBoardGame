@@ -1,0 +1,28 @@
+%li
+  .message_header
+    .message_title= link_to message.title, message
+    .message_created
+      %div
+        = image_tag "message/created.png"
+        = message.created_at.strftime("Cоздано %d.%m.%Y")
+      %div
+        - if message.created_at != message.updated_at
+          = image_tag "message/changed.png"
+          = message.updated_at.strftime("Отредактировано %d.%m.%Y")
+  .message_content
+    %p
+      - if message.content.length <= 500
+        = message.content
+      - else
+        = message.content[0,500] + "..."  
+  .message_footer
+    .more
+      = image_tag "message/lup.png"
+      = link_to "Подробнее", message
+    .comments_count
+      = image_tag "message/comment.png"
+      Комментариев 0
+  .message_border
+    .left_border
+    .right_border
+    .center_border

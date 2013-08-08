@@ -1,4 +1,12 @@
 .menu
-  %ul
-    %li= link_to image_tag('menu/News_in.png'), root_path, class: "news"
-    %li= link_to image_tag("menu/Desc_in.png"),description_path, class: "desc"
+  %ul 
+    %li= link_to image_tag("menu/news.png"), root_path,        class: "news"
+    %li= link_to image_tag("menu/desc.png"), description_path, class: "desc"
+    %li= link_to image_tag("menu/rules.png"), rules_path,      class: "rules"
+    %li= link_to image_tag("menu/map.png"), map_path,          class: "map"
+    %li= link_to image_tag("menu/policy.png"), policy_path,    class: "policy"
+    %li= link_to image_tag("menu/tech.png"), technologies_path, class: "tech"
+    %li= link_to image_tag("menu/planets.png"), planets_path,  class: "planets"
+    %li= link_to image_tag("menu/ships.png"), spaceships_path, class: "ships"
+    %li= link_to image_tag("menu/files.png"), downloads_path,  class: "files"
+    %li= link_to image_tag("menu/fb.png"),  feedback_path,     class: "fb"
