@@ -1,0 +1,8 @@
+.comment
+  .comment_title
+    %span{class: "comment_author"}= "Автор: #{comment.author}"
+    %span{class: "comment_date"}
+      = comment.created_at.strftime("%H:%M:%S  %d.%m.%Y")
+  .comment_content
+    = comment.content
+%br

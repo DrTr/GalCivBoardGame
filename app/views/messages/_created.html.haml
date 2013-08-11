@@ -1,0 +1,8 @@
+.message_created
+  %div
+    = image_tag "message/created.png"
+    = object.created_at.strftime("Cоздано %d.%m.%Y")
+  %div
+    - if object.created_at != object.updated_at
+      = image_tag "message/changed.png"
+      = object.updated_at.strftime("Отредактировано %d.%m.%Y")
