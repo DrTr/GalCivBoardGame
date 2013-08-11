@@ -39,10 +39,24 @@ describe "News page" do
   end
   
   describe "full page" do
+    let!(:comment) { Comment.create author: "some user", content: "some text",
+                                    message: message, message: message }
     before { visit message_path(message) }
     
     it { current_path.should == "/messages/#{message.url_title}" }    
     it { should have_title full_title(message.title) }
-    it { should have_content(message.content) }    
+    it { should have_content(message.content) }
+    
+    describe "should have comment" do
+      it { should have_content(comment.author) }
+      it { should have_content(comment.content) }    
+    end
+   
+    it "can create comment" do
+      fill_in "Псевдоним", with: "Гость"
+      fill_in "Текст комментария", with: "Привет!"
+      expect { click_button "Отправить" }.to change(Comment, :count).by(1)
+    end
+
   end
 end

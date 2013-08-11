@@ -2,7 +2,7 @@ module ApplicationHelper
   BGCOUNT = 5
   
   def full_title(page_title)
-    title = "Галактическая Федерация. Настольная игра"
+    title = "Космическая Федерация. Настольная игра"
     title + ( page_title.empty? ? "" : " | #{page_title}")
   end
   

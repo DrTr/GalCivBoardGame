@@ -26,6 +26,7 @@ GalCivBoardGame::Application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   resources :messages
+  resources :comments, only: [:create, :destroy]
 
   # Example resource route with options:
   #   resources :products do

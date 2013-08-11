@@ -5,6 +5,7 @@ class Message < ActiveRecord::Base
   validates :url_title, presence: true, format: { with: PATH_REGEX },
                         uniqueness: true
   default_scope -> { order('created_at DESC') }
+  has_many :comments, dependent: :destroy
   
   def to_param
     "#{url_title.parameterize}"
