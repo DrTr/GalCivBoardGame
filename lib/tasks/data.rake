@@ -15,7 +15,7 @@ def make_messages
     content = Faker::Lorem.sentence(200)
     Message.create(title: title, url_title: url_title, content: content)
   end
-  Message.first.update(title: "Обновленная новость")
+#  Message.first.update(title: "Обновленная новость")
 end
 
 def make_comments
