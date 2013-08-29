@@ -13,7 +13,7 @@ describe "News page" do
   subject { page } 
   
   describe "index page" do
-    before { visit root_path }  
+    before { visit root_path } 
     
     it { should have_title full_title("Новости") }
     it { should have_content("My title") }
@@ -34,6 +34,11 @@ describe "News page" do
     
     it "should have link to full page" do
       click_link "Подробнее"
+      current_path.should == message_path(message)    
+    end
+    
+    it "should have linked title" do
+      click_link message.title
       current_path.should == message_path(message)    
     end
   end

@@ -2,10 +2,8 @@
 %h1= @message.title
 .message_content= @message.content
 .message_panel
+  %a{ name: "comments" }
   = render "comment_form"
   = render "created", object: @message
   %h2= "Комментариев: #{@message.comments.count}"
-.comments
-  = will_paginate @comments
-  = render @comments
-  = will_paginate @comments
+.comments_list= render 'comments_content'

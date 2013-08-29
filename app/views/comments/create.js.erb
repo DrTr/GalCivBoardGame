@@ -1,0 +1,4 @@
+$(".comments_list").html("<%= \
+	                  escape_javascript(render 'messages/comments_content')%>")									
+$("h2").html("<%= "Комментариев: #{@message.comments.count}"%>")
+document.getElementById('comment_text_area').value='';									                    

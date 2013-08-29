@@ -1,8 +1,9 @@
-= form_for(@comment) do |f|
+= form_for(@comment, remote: true) do |f|
   .label= f.label :author, "Псевдоним"
-  .field= f.text_field :author, required: true
-  .label= f.label :content, "Текст комментария"
-  .area= f.text_area :content, size: "30x4", wrap: "soft", required: true
+  .field= f.text_field :author, required: true, maxlength: 25
+  .label= f.label "text_area", "Текст комментария"
+  .area= f.text_area :content, size: "37x4", wrap: "soft",             |
+                               required: true, id: "comment_text_area" |
   = hidden_field_tag :message_id, @message.id
-  = f.submit "Отправить", class: "submit_button"
+  = f.submit "Отправить", class: "comment_button"
     

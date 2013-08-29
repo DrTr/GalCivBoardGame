@@ -1,10 +1,9 @@
-$myblue: #29297B
+$myBlue: #29297B
 
 .messages
   margin-left: 0
   padding-left: 0
   margin-top: 50px
-  padding-right: 10px
   li
     list-style-type: none
     margin-bottom: 50px
@@ -20,23 +19,30 @@ img
   margin-right: 250px
   a
     font-size: 30px
-      
+    &:hover
+      text-decoration: none
+ 
+.message_created
+  height: 60px  
+        
 .message_content
-  padding: 20px 0 
+  padding-top: 10px
+  margin-bottom: 40px 
 
 .message_footer
   margin-bottom: 5px
   
 .more
   float: left
+
+.more, .comments_count
   a
     color: silver
-    text-decoration: underline
 
 .comments_count
   text-align: right   
   
-.comments_count, .message_created, .comment_title
+.message_created, .comment_title
   color: silver
 
 @mixin border_side
@@ -46,37 +52,57 @@ img
 .left_border
   @include border_side
   float: left
-  margin-left: -20px
+  margin-left: -50px
   background: url(image_path('message/border_left.png'))
  
 .right_border
   @include border_side
   float: right
-  margin-right: -10px
+  margin-right: -50px
   background: url(image_path('message/border_right.png'))
   
 .center_border
   height: 16px
-  margin: 0 200px
+  margin: 0 165px 
   background: url(image_path('message/border_element.png'))
 
 .new_comment
   float: right
-  margin-right: 50px
+  margin-right: 30px
 
 .message_panel
-  height: 200px
+  height: 225px
   h2
-    margin-top: 80px
+    margin-top: 100px
+
+.comment_button
+  margin: 5px 0
+  height: 35px
+  width: 120px
+  font-size: 16px
+  font-weight: bold
+  background: rgba(50, 60, 82, 1)
+  color: white
+  border-radius: 20px
+  border-color: $myBlue
   
 .comment
   display: inline-block
   padding: 10px
   margin: 10px 0
-  border: 1 outset $myblue
+  border: 1 outset $myBlue
   border-radius: 10px
   background-color: rgba(50, 60, 82, 0.8)
  
 .comment_date
-  margin-left: 30px
+  margin-left: 5px
 
+.comment_content
+  margin: 5px 0  
+  
+.label, .area
+  margin-bottom: 5px 
+  
+.field
+  margin-bottom: 10px
+  
