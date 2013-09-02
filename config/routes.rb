@@ -27,6 +27,7 @@ GalCivBoardGame::Application.routes.draw do
   #   resources :products
   resources :messages
   resources :comments, only: [:create, :destroy]
+  resources :feedbacks, only: [:create, :destroy]
 
   # Example resource route with options:
   #   resources :products do
