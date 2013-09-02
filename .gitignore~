@@ -16,4 +16,4 @@
 /tmp
 
 #ignore config files
-/config/initializers/*.*
+/config/initializers/*
