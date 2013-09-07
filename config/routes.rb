@@ -19,6 +19,10 @@ GalCivBoardGame::Application.routes.draw do
   get 'downloads'   => 'pages#downloads' 
   get 'feedback'    => 'feedbacks#index'
   get 'contacts'    => 'pages#contacts'
+  
+  get "auth/:provider/callback" => "sessions#create"
+  get "auth/:provider/oauth2callback" => "session#create"
+  get "signout" => "sessions#destroy"
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
@@ -28,6 +32,7 @@ GalCivBoardGame::Application.routes.draw do
   resources :messages
   resources :comments, only: [:create, :destroy]
   resources :feedbacks, only: [:create, :destroy]
+  resources :users, only: [:update, :destroy, :show, :index]
 
   # Example resource route with options:
   #   resources :products do

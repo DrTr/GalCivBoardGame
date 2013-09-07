@@ -11,31 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130829090425) do
+ActiveRecord::Schema.define(version: 20130907130815) do
 
-  create_table "admins", force: true do |t|
-    t.string   "email"
-    t.string   "password_digest"
-    t.string   "remember_token"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-  
   create_table "comments", force: true do |t|
-    t.string   "author"
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "message_id"
+    t.integer  "user_id"
   end
 
   create_table "feedbacks", force: true do |t|
-    t.string   "name"
     t.string   "email"
     t.text     "content"
     t.integer  "mark"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "messages", force: true do |t|
@@ -44,6 +36,17 @@ ActiveRecord::Schema.define(version: 20130829090425) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "url_title"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "link"
+    t.string   "image_link"
+    t.string   "access"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "provider"
+    t.string   "uid"
   end
 
 end

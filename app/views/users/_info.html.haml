@@ -1,0 +1,10 @@
+- unless object.image_link.blank?
+  = image_tag object.image_link, size: "50x50"
+-else 
+  = image_tag "no_avatar.png", size: "50x50"
+- if object.link.blank?
+  = object.name
+- else
+  = link_to object.name, object.link, target: '_tab'
+= " | "
+= link_to "Выход", signout_path

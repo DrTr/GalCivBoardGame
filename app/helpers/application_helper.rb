@@ -9,4 +9,5 @@ module ApplicationHelper
   def random_bg
     "backgrounds/bg#{rand(5)}.jpg"
   end
+
 end
