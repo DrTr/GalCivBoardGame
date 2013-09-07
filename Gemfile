@@ -4,10 +4,11 @@ gem 'haml'
 gem 'will_paginate'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'faker'
-gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-vkontakte'
+gem "omniauth-google-oauth2"
+gem 'omniauth-github'
  
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
@@ -15,6 +16,7 @@ gem 'rails', '4.0.0'
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
+  gem 'dotenv-rails'
 end
 
 group :test do

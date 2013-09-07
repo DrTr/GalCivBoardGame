@@ -2,8 +2,13 @@
 %h1= @message.title
 .message_content= @message.content
 .message_panel
-  %a{ name: "comments" }
-  = render "comment_form"
+  %a{ name: "comments" }  
+  - if current_user
+    #user_info
+      = render "users/info", object: current_user
+      = render "comment_form"
+  - else
+    #sign_in= render "shared/signin"
   = render "created", object: @message
   %h2= "Комментариев: #{@message.comments.count}"
 .comments_list= render 'comments_content'

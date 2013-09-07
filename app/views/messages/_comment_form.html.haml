@@ -1,6 +1,5 @@
 = form_for(@comment, remote: true) do |f|
-  .label= f.label :author, "Псевдоним"
-  .field= f.text_field :author, required: true, maxlength: 25
+  .field= f.hidden_field :user_id, value: current_user.id
   .label= f.label "text_area", "Текст комментария"
   .area= f.text_area :content, size: "37x4", wrap: "soft",             |
                                required: true, id: "comment_text_area" |
