@@ -1,8 +1,8 @@
 class SessionsController < ApplicationController
   def create
     auth = request.env["omniauth.auth"]
-    @user = User.find_or_create_by(uid: auth.uid) do |user|
-      user.uid = auth.uid
+    @user = User.find_or_create_by(uid: auth.uid.to_s) do |user|
+      user.uid = auth.uid.to_s
       user.name = auth.info.name
       user.provider = auth.provider
       user.image_link = auth.info.image
