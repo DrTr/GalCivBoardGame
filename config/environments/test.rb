@@ -33,4 +33,7 @@ GalCivBoardGame::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+  
+  #Access to session hash
+  config.middleware.use RackSessionAccess::Middleware
 end

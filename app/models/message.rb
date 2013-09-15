@@ -6,6 +6,7 @@ class Message < ActiveRecord::Base
                         uniqueness: true
   default_scope -> { order('created_at DESC') }
   has_many :comments, dependent: :destroy
+  include SmartLinks
   
   def to_param
     "#{url_title.parameterize}"

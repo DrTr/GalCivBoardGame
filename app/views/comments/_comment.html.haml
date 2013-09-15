@@ -1,14 +1,12 @@
 .comment
   .comment_title
     = image_tag comment.user.image_link, size: "50x50", class: "comment_avatar"
-    %span{class: "comment_author"}
+    %span.comment_author
       - if comment.user.link.blank?
         = comment.user.name
       - else
         = link_to comment.user.name, comment.user.link, target: '_tab'
       = " | "
-    %span{class: "comment_date"}
       = comment.created_at.strftime("%H:%M:%S  %d.%m.%Y")
-  .comment_content
-    = comment.content
+  .comment_content= raw(comment.content)
 %br

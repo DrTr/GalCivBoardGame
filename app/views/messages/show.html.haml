@@ -1,6 +1,6 @@
 - provide(:title, @message.title)
 %h1= @message.title
-.message_content= @message.content
+.message_content= raw(@message.content)
 .message_panel
   %a{ name: "comments" }  
   - if current_user
@@ -10,5 +10,5 @@
   - else
     #sign_in= render "shared/signin"
   = render "created", object: @message
-  %h2= "Комментариев: #{@message.comments.count}"
+  %h2 Комментариев: #{@message.comments.count}
 .comments_list= render 'comments_content'

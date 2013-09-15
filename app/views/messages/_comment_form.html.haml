@@ -1,8 +1,8 @@
 = form_for(@comment, remote: true) do |f|
   .field= f.hidden_field :user_id, value: current_user.id
   .label= f.label "text_area", "Текст комментария"
-  .area= f.text_area :content, size: "37x4", wrap: "soft",             |
-                               required: true, id: "comment_text_area" |
+  .area= f.text_area :content, size: "37x4", wrap: "soft",             
+    required: true, id: "comment_text_area"
   = hidden_field_tag :message_id, @message.id
   = f.submit "Отправить", class: "comment_button"
     

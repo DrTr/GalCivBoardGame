@@ -1,5 +1,5 @@
 require 'spec_helper'
-include ApplicationHelper
+include ApplicationHelper 
 
 describe "News page" do
   before(:all) do
@@ -7,8 +7,8 @@ describe "News page" do
     VISIBLE_LENGTH = 500
   end 
     
-  let!(:message) { Message.create( url_title: "my-url", 
-                  title: "My title", content: 'a' * TOTAL_LENGTH ) }
+  let!(:message) { FactoryGirl.create(:message, content: 'a' * TOTAL_LENGTH ) }
+  let!(:user) { FactoryGirl.create(:user) }
   
   subject { page } 
   
@@ -16,7 +16,7 @@ describe "News page" do
     before { visit root_path } 
     
     it { should have_title full_title("Новости") }
-    it { should have_content("My title") }
+    it { should have_content( message.title ) }
    
     describe "with big text" do
       it { should have_content('a' * VISIBLE_LENGTH) }
@@ -44,8 +44,7 @@ describe "News page" do
   end
   
   describe "full page" do
-    let!(:comment) { Comment.create author: "some user", content: "some text",
-                                    message: message, message: message }
+    let!(:comment){ FactoryGirl.create(:comment, user: user, message: message) } 
     before { visit message_path(message) }
     
     it { current_path.should == "/messages/#{message.url_title}" }    
@@ -53,15 +52,28 @@ describe "News page" do
     it { should have_content(message.content) }
     
     describe "should have comment" do
-      it { should have_content(comment.author) }
+      it { should have_content(comment.user.name) }
       it { should have_content(comment.content) }    
     end
    
-    it "can create comment" do
-      fill_in "Псевдоним", with: "Гость"
-      fill_in "Текст комментария", with: "Привет!"
-      expect { click_button "Отправить" }.to change(Comment, :count).by(1)
+    describe "non-authorized user" do
+      it { should have_content "Войдите что бы оставлять комментарии" }
+      it { should_not have_content "Текст комментария" }
     end
-
+    
+    describe "authorized user" do
+      before do
+        page.set_rack_session(user_id:  user.id)
+        visit message_path(message)
+      end         
+      it { should_not have_content "Войдите что бы оставлять комментарии" }
+      it { should have_content "Текст комментария" }
+      it "can create comment" do
+        expect do
+          fill_in "Текст комментария", with: "Cooooment"
+          click_button "Отправить"
+        end.to change(user.comments, :count).by(1)
+      end
+    end
   end
 end

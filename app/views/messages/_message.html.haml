@@ -13,8 +13,8 @@
       = link_to "Подробнее", message
     .comments_count
       = image_tag "message/comment.png"
-      = link_to "Комментариев: #{message.comments.count}", |
-        message_path(message, anchor: "comments")         |
+      = link_to "Комментариев: #{message.comments.count}",
+          message_path(message, anchor: "comments")
   .message_border
     .left_border
     .right_border
