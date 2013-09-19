@@ -37,5 +37,33 @@ describe Comment do
                                        message_id: 1, created_at: 1.hour.ago) }
     Message.first.should == @new_comment                
   end
+  
+  describe "smart links" do
+    describe "to url" do
+      
+      describe "without quotes" do
+        before { comment.update_attribute(:content, "http://example.com") }
+        its(:content){ should == "<a href=\"http://example.com\">http://example.com</a>"}
+      end
+      
+      describe "with quotes" do
+        before { comment.update_attribute(:content, "\"http://example.com\"") }
+        its(:content){ should == "\"http://example.com\""}
+      end
+    end
+    
+    describe "to image url" do
+      
+      describe "without quotes" do
+        before { comment.update_attribute(:content, "http://example.com/image.jpg") }
+        its(:content){ should == "<img src=\"http://example.com/image.jpg\">"}
+      end
+      
+      describe "with quotes" do
+        before { comment.update_attribute(:content, "\"http://example.com/image.jpg\"") }
+        its(:content){ should == "\"http://example.com/image.jpg\""}
+      end
+    end
+  end
 
 end
