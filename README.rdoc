@@ -1,28 +1,17 @@
-== README
+== GalCivBoardGame
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project is about board game interpretation of Galactic Civilizations PC game, what i create.
 
-Things you may want to cover:
+It's placed on heroku: http://galcivboardgame.herokuapp.com/
 
-* Ruby version
+Now filed only first tab "Messages".
 
-* System dependencies
+All data are fake! Information about board game will be added later.
 
-* Configuration
+Now site have next features:
 
-* Database creation
+* sign-in via: google, vkontakte, facebbok, github(left for development enviroment)
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* leave comments. It's working with ajax, also it understand html tags.
+  Links automaticaly nest into anchor tag, links to images displays as image.
+  Links in quotes still can be nested in HTML tags.  
