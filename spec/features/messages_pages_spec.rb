@@ -3,11 +3,12 @@ include ApplicationHelper
 
 describe "News page" do
   before(:all) do
-    TOTAL_LENGTH = 600
-    VISIBLE_LENGTH = 500
+    TOTAL_LENGTH = 60
+    VISIBLE_LENGTH = 50
+    WORD = ('a' * 9 + " ") 
   end 
     
-  let!(:message) { FactoryGirl.create(:message, content: 'a' * TOTAL_LENGTH ) }
+  let!(:message) { FactoryGirl.create(:message, content: WORD * TOTAL_LENGTH ) }
   let!(:user) { FactoryGirl.create(:user) }
   
   subject { page } 
@@ -19,7 +20,7 @@ describe "News page" do
     it { should have_content( message.title ) }
    
     describe "with big text" do
-      it { should have_content('a' * VISIBLE_LENGTH) }
+      it { should have_content((WORD * 49).lstrip) }
       it { should_not have_content(message.content) }   
     end
   

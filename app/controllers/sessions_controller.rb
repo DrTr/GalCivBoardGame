@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
       user.link = auth.extra.raw_info.link 
     end
     check_for_updates @user unless @user.new_record?
+    reset_session
     session[:user_id] = @user.id 
     redirect_to_back
   end

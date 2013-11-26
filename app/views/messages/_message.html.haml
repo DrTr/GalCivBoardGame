@@ -3,10 +3,7 @@
     .message_title= link_to message.title, message
     = render "created", object: message
   .message_content
-    - if message.content.length <= 500
-      = message.content
-    - else
-      = message.content[0,500] + "..."  
+    = message.content.truncate(500, omission: "...", separator: ' ')
   .message_footer
     .more
       = image_tag "message/lup.png"
